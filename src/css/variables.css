@@ -1,0 +1,18 @@
+@custom-media --mobile-viewport (width < 768px);
+
+:root {
+    --black: #111111;
+    --warm-grey: #999999;
+    --white: #ffffff;
+    --purpley-blue: #5e48e8;
+    --seafoam-blue: #53c0d0;
+    --text_normal: #000000;
+    --text_sub: #777777;
+    --status_disabled: #aaaaaa;
+    --status_soon: #5ee2e6;
+    --status_ing: #ffbf50;
+    --status_complete: #4481fb;
+    --bg: #eeeeee;
+    --bg_floatingBG: #010101;
+    --highlights_color: #00fff6;
+}

@@ -1,0 +1,45 @@
+{
+    "name": "path",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "NODE_ENV=development webpack --config webpack.config.js",
+        "build": "NODE_ENV=production webpack --config webpack.config.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "http://wpp.m4nc.net:8580/root/path.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@babel/cli": "^7.8.4",
+        "@babel/core": "^7.9.6",
+        "@babel/plugin-proposal-class-properties": "^7.8.3",
+        "@babel/preset-env": "^7.9.6",
+        "babel-loader": "^8.1.0",
+        "clean-webpack-plugin": "^3.0.0",
+        "css-loader": "^3.5.3",
+        "cssnano": "^4.1.10",
+        "file-loader": "^6.0.0",
+        "mini-css-extract-plugin": "^0.9.0",
+        "postcss-calc": "^7.0.2",
+        "postcss-cli": "^7.1.1",
+        "postcss-import": "^12.0.1",
+        "postcss-loader": "^3.0.0",
+        "postcss-preset-env": "^6.7.0",
+        "style-loader": "^1.2.1",
+        "terser-webpack-plugin": "^3.0.1",
+        "url-loader": "^4.1.0",
+        "webpack": "^4.43.0",
+        "webpack-cli": "^3.3.11",
+        "webpack-dev-server": "^3.11.0",
+        "webpack-merge": "^4.2.2"
+    },
+    "dependencies": {
+        "normalize.css": "^8.0.1",
+        "reset-css": "^5.0.1"
+    }
+}

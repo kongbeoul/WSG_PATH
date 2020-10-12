@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>WSG PATH</title>
+        <link rel="stylesheet" href="./dist/style.css" />
+    </head>
+    <body>
+        <div id="wrap" class="l-app">
+            <div class="l-inner">
+                <div id="header" class="l-header">
+                    <h1 class="l-header__tit">Brightics 등 S-Core Solution CX 제안(제안 시안)</h1>
+                    <button type="button" class="c-btn c-btn--small c-btn--gray c-btn--round c-btn--border l-header__btn js-layer-open-trigger">WSG 안내</button>
+                    <button type="button" class="c-btn--menu l-header__menu__btn js-toolbar-open-trigger"></button>
+                </div>
+                <div id="container" class="l-container">
+                    <div id="toolbar" class="l-toolbar">
+                        <button type="button" class="l-toolbar__btn c-btn--close js-toolbar-close-trigger"></button>
+                        <div class="l-toolbar__menu__lists"></div>
+                    </div>
+                    <div id="tree" class="l-tree">
+                        <div class="l-status">
+                            <span class="l-total l-status__total">0 / total 0 pages</span>
+                            <div class="c-menu l-status__menu">
+                                <div class="c-menu__title">
+                                    <button type="button" class="c-menu__trigger js-menu-trigger"></button>
+                                    <p class="c-menu__name">Web Style Guide</p>
+                                </div>
+                                <div class="c-menu__children">
+                                    <div class="c-menu__item">
+                                        <div class="c-menu__item__info">
+                                            <p class="c-menu__item__name">
+                                                1depth menu
+                                            </p>
+                                            <span class="c-menu__item__state c-state c-state--complete"></span>
+                                            <a href="javascript:void(0)" class="c-menu__item__link">/common/inc/MCWP000002.html</a>
+                                            <div class="c-menu__item__history"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="l-legend l-status__legend">
+                                <span class="l-legend__item c-state c-state--soon">작업예정</span>
+                                <span class="l-legend__item c-state c-state--ing">작업중</span>
+                                <span class="l-legend__item c-state c-state--complete">작업완료</span>
+                                <span class="l-legend__item c-state c-state--delete">화면삭제</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="footer" class="l-footer"></div>
+            </div>
+            <div class="l-layer">
+                <h2 class="l-layer__tit">WSG 안내</h2>
+                <ul class="l-layer__item__lists">
+                    <li class="l-layer__item">
+                        <span class="l-layer__item__tit">작업폴더위치</span>
+                        <ul>
+                            <li>
+                                <span class="l-layer__item__tit">ROOT</span>
+                                <div>
+                                    <p class="l-layer__item__txt">/PRJ001/inc/images</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="l-layer__item__tit">업무별 폴더 영역</span>
+                                <div>
+                                    <p class="l-layer__item__txt">(업무폴더명 추가는 개발팀 협의 후 진행)</p>
+                                    <p class="l-layer__item__txt">/PRJ001/inc/images</p>
+                                    <p class="l-layer__item__txt">/PRJ001/inc/images</p>
+                                    <p class="l-layer__item__txt">/PRJ001/inc/images</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="l-layer__item__tit">images</span>
+                                <div>
+                                    <p class="l-layer__item__txt">/PRJ001/inc/images</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="l-layer__item__tit">css</span>
+                                <div>
+                                    <p class="l-layer__item__txt">/PRJ001/inc/css</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="l-layer__item__tit">js</span>
+                                <div>
+                                    <p class="l-layer__item__txt">/PRJ001/inc/js</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="l-layer__item">
+                        <span class="l-layer__item__tit">파일명 생성 규칙</span>
+                        <ul>
+                            <li>
+                                <span class="l-layer__item__tit">Program ID 사용</span>
+                                <div>
+                                    <p class="l-layer__item__txt u-highlights-color">화면아이디 사용하지 않음</p>
+                                    <p class="l-layer__item__txt">프로그램아이디는 IA구조도 참고</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <button type="button" class="c-btn--close l-layer__btn js-layer-close-trigger"></button>
+            </div>
+        </div>
+        <script src="./dist/bundle.js"></script>
+        <script>
+            window.addEventListener("DOMContentLoaded", function () {
+                var request = new XMLHttpRequest();
+                request.open("GET", "./data.json", true);
+                request.onload = function () {
+                    if (this.status >= 200 && this.status < 400) {
+                        // SUCCESS
+                        new APP.Tree(JSON.parse(this.response)).render(document.getElementById("tree"));
+                    } else {
+                        // We reached our target server, but it returned an error
+                        console.log(this);
+                    }
+                };
+                request.onerror = function () {
+                    // There was a connection error of some sort
+                };
+                request.send();
+            });
+        </script>
+    </body>
+</html>

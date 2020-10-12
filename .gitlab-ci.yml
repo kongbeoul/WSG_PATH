@@ -1,0 +1,29 @@
+stages:
+    # - build
+    - deploy
+
+# build-to-server:
+#     stage: build
+#     only:
+#         - master
+#     script:
+#         - echo 'Build Stage'
+#         - npm install
+#         - npm run build
+#     artifacts:
+#         paths:
+#             - dist/
+#     tags:
+#         - path
+
+deploy-to-server:
+    stage: deploy
+    only:
+        - master
+    script:
+        - echo 'Deploy Stage'
+        - mkdir -p $HOME/www/path
+        - cp -r * $HOME/www/path
+    when: manual
+    tags:
+        - path
