@@ -14,13 +14,19 @@ OS: WSL
 
 ## 데이터 구조 
 ```
+@constructor Node
 {
     "_depID": "DEPTH",  // Stinrg | Number
     "title": "제목", // String
-    "url": "URL", // String
+    "url": "링크", // String
     "state": "작업 상태", // String [ none, soon, ing, complete, delete ]
-    "history": "변경 사항 - 일자 별로 관리", // Object { key: String, value: Array }
-    "children": "하위 메뉴" // Array 동일한 구조의 형태로 하위 반복
+    "history": {
+        "YYYY-MM-DD": ["변경사항", "변경사항", ... , "변경사항"]
+    }, // Object { key: String, value: Array }
+    "children": [
+        Node,
+        Node
+    ] // Array 동일한 구조의 형태로 하위 반복
 }
 
 ex) {
@@ -41,7 +47,26 @@ ex) {
             "YYYY-MM-DD": [ "변경 사항", "변경사항" ... "변경사항" ]
         },
         "children": []
+    }, {
+        "_depID": "2",
+        "title": "2depth 메뉴",
+        "url": "html/**/*.html",
+        "state": "complete",
+        "history": {
+            "YYYY-MM-DD": [ "변경 사항", "변경사항" ... "변경사항" ]
+        },
+        "children": []
     }]
+},
+{
+    "_depID": "1",
+    "title": "1depth 메뉴",
+    "url": "html/**/*.html",
+    "state": "complete",
+    "history": {
+        "YYYY-MM-DD": [ "변경 사항", "변경사항" ... "변경사항" ]
+    },
+    "children": []
 }
 ```
 
