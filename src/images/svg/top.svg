@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
+    <g id="top" transform="translate(-1806 -2126)">
+        <g id="사각형_693" fill="none" stroke="#111" stroke-width="2px" data-name="사각형 693">
+            <path stroke="none" d="M0 0H50V50H0z" transform="translate(1806 2126)"/>
+            <path d="M1 1H49V49H1z" transform="translate(1806 2126)"/>
+        </g>
+        <g id="arrow" transform="translate(1823 2147)">
+            <path id="패스_106" fill="none" stroke="#111" stroke-linecap="square" stroke-width="2px" d="M5520.023 5861.87l8.5-8.5 8.5 8.5" data-name="패스 106" transform="translate(-5520.023 -5853.37)"/>
+        </g>
+    </g>
+</svg>

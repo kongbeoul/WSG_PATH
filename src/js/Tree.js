@@ -1,4 +1,3 @@
-import reduce from "lodash/reduce";
 import { Template } from "./Node";
 import Toolbar from "./Toolbar";
 import Status, { COMPLETE, NONE } from "./Status";
@@ -14,9 +13,7 @@ export default class Tree {
         this.toolbar = new Toolbar(["전체", ...data.map((v) => v.title)]);
         this.toolbar.render();
 
-        const [complete, total] = reduce(
-            this.parse,
-            (a, { state }) => {
+        const [complete, total] = this.parse.reduce((a, { state }) => {
                 state == COMPLETE && a[0]++;
                 a[1]++;
                 state == NONE && a[1]--;

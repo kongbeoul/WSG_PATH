@@ -1,6 +1,7 @@
 import { COMPLETE, NONE } from "./Status";
 
 export const mq = window.matchMedia("(max-width: 767px)");
+
 export const create = (temp, data) => {
     let i = 0;
     while (i < data.length) {
@@ -44,13 +45,13 @@ export const display = (data) => {
 };
 
 export const counted = (data, complete, total) => {
-    console.log(data);
     let i = 0;
     while (i < data.length) {
         const { state, children } = data[i];
         if (children.length > 0) {
-            const [c, t] = counted(children, state == COMPLETE ? ++complete : complete, state == NONE ? total : ++total);
-            return [c, t];
+            const [c, t] = counted(children, complete, total);
+            complete = c;
+            total = t;
         } else {
             state == COMPLETE && complete++;
             total++;

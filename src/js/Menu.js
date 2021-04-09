@@ -1,5 +1,3 @@
-import each from "lodash/each";
-
 export const MENU = "c-menu";
 export const MENU_TOGGLE = "c-menu--is-active";
 export const MENU_TRIGGER = "js-menu-trigger";
@@ -26,7 +24,7 @@ export default class Menu {
         this.complete = complete;
         this.total = total;
 
-        each([MENU, MENU_TOGGLE], (c) => this.element.classList.add(c));
+        [MENU, MENU_TOGGLE].forEach((c) => this.element.classList.add(c));
 
         this.element.setAttribute("id", this.title);
     }

@@ -183,21 +183,34 @@
     align-items: center;
 
     @media (--mobile-viewport) {
-        justify-content: center;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        row-gap: 10px;
     }
 }
 
 .l-legend__item {
-    font-size: 10px;
-    line-height: calc(15 / 10);
-
+    line-height: 0;
     &:not(:last-child) {
         margin-right: 25px;
+    }
+
+    & > em {
+        font-size: 10px;
+        line-height: calc(15 / 10);
+        vertical-align: middle;    
     }
 
     &:before {
         margin-right: 5px;
         vertical-align: middle;
+        line-height: 0;
+    }
+
+    @media (--mobile-viewport) {
+        &:not(:last-child) {
+            margin-right: 0;
+        }
     }
 }
 
@@ -205,7 +218,7 @@
     margin-top: 10px;
 }
 
-.l-footer {
+/* .l-footer {
     position: absolute;
     bottom: 35px;
     left: 45px;
@@ -215,19 +228,15 @@
         width: 60px;
         height: 16px;
         display: block;
-        background: url(./images/LOGO.png) 0 0 no-repeat;
+        background: svg-load("LOGO.svg") no-repeat center / 100% auto;
     }
 
     @media (--mobile-viewport) {
         left: 50%;
         bottom: 57px;
         transform: translateX(-50%);
-        &:before {
-            background: url(./images/LOGO@3x.png) 0 0 no-repeat;
-            background-size: 100% auto;
-        }
     }
-}
+} */
 
 .l-layer {
     width: calc(calc(735 / 1920) * 100%);

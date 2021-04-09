@@ -1,5 +1,3 @@
-import map from "lodash/map";
-
 export const TOOLBAR = ".l-toolbar";
 export const TOOLBAR_MENU_LIST = ".l-toolbar__menu__lists";
 export const TOOLBAR_MENU = "l-toolbar__menu";
@@ -15,7 +13,7 @@ export default class Toolbar {
 
     render(element = TOOLBAR) {
         this.root = document.querySelector(element);
-        this.element = map(this.data, (v) => {
+        this.element = this.data.map((v) => {
             const btn = document.createElement("button");
             btn.type = "button";
             btn.textContent = v;

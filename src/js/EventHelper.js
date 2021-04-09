@@ -12,6 +12,7 @@ export default class EventHelper {
         this.target = document.body;
         this.toolbar = this.target.querySelector(TOOLBAR);
         this.tooltip = this.target.querySelectorAll(`.${TOOLTIP}`);
+        this.btnTop = this.target.querySelector(".c-btn--top");
         this.init();
     }
     init() {
@@ -35,7 +36,7 @@ export default class EventHelper {
             }
 
             // ToolTip
-            each(document.querySelectorAll(`.${TOOLTIP_TOGGLE}`), (tooltip) => {
+            [].forEach.call(document.querySelectorAll(`.${TOOLTIP_TOGGLE}`), (tooltip) => {
                 tooltip.classList.remove(TOOLTIP_TOGGLE);
             });
 
@@ -48,6 +49,27 @@ export default class EventHelper {
                 target.parentNode.classList.remove(LAYER_ACTIVE);
             }
         });
+
+        
+        window.addEventListener('scroll', e => {
+            const { pageYOffset } = window;
+            const scrollHeight = document.body.scrollHeight - window.innerHeight;
+            
+            if(pageYOffset > scrollHeight * 0.3) {
+                this.btnTop.style.opacity = 1;
+            } else {
+                this.btnTop.style.opacity = 0;
+            }
+        })
+
+        this.btnTop.addEventListener('click', e => {
+            window.scroll({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            })
+        })
+
     }
     toolbarEvent() {
         const handleMatchedOpenClicked = () => {
@@ -63,11 +85,11 @@ export default class EventHelper {
             if (target.classList.contains(TOOLBAR_MENU)) {
                 const controls = target.getAttribute("aria-controls");
                 target.classList.add(TOOLBAR_MENU_ACTIVE);
-                each(document.querySelectorAll(`.${TOOLBAR_MENU}`), (menu) => {
+                [].forEach.call(document.querySelectorAll(`.${TOOLBAR_MENU}`), (menu) => {
                     menu !== target && menu.classList.remove(TOOLBAR_MENU_ACTIVE);
                 });
 
-                each([...document.querySelectorAll(`.${MENU}`)].slice(1), (menu) => {
+                [...document.querySelectorAll(`.${MENU}`)].slice(1).forEach((menu) => {
                     const id = menu.getAttribute("id");
 
                     if (controls === "전체") {
@@ -105,12 +127,12 @@ export default class EventHelper {
         });
     }
     tooltipEvent() {
-        each(this.tooltip, (tooltip) => {
+        [].forEach.call(this.tooltip, (tooltip) => {
             const trigger = tooltip.querySelector(`.${TOOLTIP_TRIGGER}`);
             trigger.addEventListener(CLICK, (e) => {
                 e.stopPropagation();
                 e.target.parentNode.classList.toggle(TOOLTIP_TOGGLE);
-                each(this.tooltip, (t) => {
+                [].forEach.call(this.tooltip, (t) => {
                     t !== e.target.parentNode && t.classList.remove(TOOLTIP_TOGGLE);
                 });
             });

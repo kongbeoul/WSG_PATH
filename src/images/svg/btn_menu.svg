@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+    <g>
+        <path d="M0 0H9V9H0z" data-name="사각형 30" transform="translate(-449 -88) translate(449 88)"/>
+        <path d="M0 0H9V9H0z" data-name="사각형 32" transform="translate(-449 -88) translate(449 99)"/>
+        <path d="M0 0H9V9H0z" data-name="사각형 31" transform="translate(-449 -88) translate(460 88)"/>
+        <path d="M0 0H9V9H0z" data-name="사각형 33" transform="translate(-449 -88) translate(460 99)"/>
+    </g>
+</svg>
